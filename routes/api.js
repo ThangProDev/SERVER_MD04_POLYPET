@@ -1,5 +1,8 @@
 var express = require('express');
 var router = express.Router();
+const user = require('../model/user')
+
+const Upload = require('../config/common/upload');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
