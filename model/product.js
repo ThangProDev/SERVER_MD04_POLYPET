@@ -11,6 +11,7 @@ const Product = new Schema({
     proStar: {type: Number},
     proSold: {type: Number},
     proContent: {type: String},
+    proActive: {type: Number},
     pro_class_id: {type: Schema.Types.ObjectId, ref: 'class'},
 },
 {

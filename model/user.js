@@ -11,6 +11,7 @@ const User = new Schema({
     userPass: {type: String, required: true},
     userSold: {type: Number},
     userLike: {type: Number},
+    otp: {type: String},
 },
 {
     timestamps: true
