@@ -1,0 +1,36 @@
+const createNotification = async (req, res) => {
+    try {
+        const { notiImg, notiContent } = req.body;
+
+        const newNotification = new Notification({
+            notiImg,
+            notiContent
+        });
+
+        const savedNotification = await newNotification.save();
+
+        if (savedNotification) {
+            // Gửi thông báo tới tất cả client đã đăng ký nhận thông báo
+            //io.emit('newNotification', savedNotification);
+
+            res.json({
+                status: 200,
+                message: "Thêm thông báo thành công",
+                data: savedNotification
+            });
+        } else {
+            res.json({
+                status: 400,
+                message: "Thêm thông báo thất bại",
+                data: []
+            });
+        }
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            status: 500,
+            message: "Lỗi server",
+            data: error.message
+        });
+    }
+};
